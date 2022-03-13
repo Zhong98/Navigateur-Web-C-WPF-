@@ -1,0 +1,30 @@
+﻿<Window x:Class="Navigateur_web_version3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Navigateur_web_version3"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button x:Name="ButtonGo" DockPanel.Dock="Right" Click="ButtonGo_Click" Content="Go"/>
+                <Button x:Name="ButtonBack" DockPanel.Dock="Left" Click="ButtonBack_Click" Content="Précedent"/>
+                <ComboBox x:Name="addressBar" IsEditable="True">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <TextBlock x:Name="Address" DockPanel.Dock="Right" Text="{Binding currentURL}"/>
+                                <Button x:Name="ButtonFix" DockPanel.Dock="Left" Content="Epingler" Click="ButtonFix_Click" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+            <wv2:WebView2 Name="webView" Source="https://www.google.fr"/>
+        </DockPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="-361,39,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
